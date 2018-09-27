@@ -1,0 +1,40 @@
+/*
+  통장잔액찍기 java script
+  소프트웨어 수정 :  2017. 05. 29.
+  소프트웨어 작성 :  2017. 05. 29.
+  작성자 : 이효범
+  한서대학교 컴퓨터공학과
+*/
+
+
+
+<script>
+
+    var blank	= "**********";
+    var money   = prompt('금액을입력하세요','0000000000');
+    var result  = "";
+
+    money = money.split("").reverse().join("");
+
+    for(var i = 0; i < money.length; i++) {
+	if(i % 3 == 0) {
+	     if(i == 0) {
+		result = result +money[i];
+	     }
+	    else {
+	    result = result + "," + money[i];
+	}
+    }
+	else {
+	    result = result + money[i];
+	}
+    }
+
+    result = result + blank;
+    result = result.substring(0,10);
+    result = result.split("").reverse().join("");
+    
+    document.writeln(result+'<br>');
+
+</script>
+	

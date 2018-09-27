@@ -1,0 +1,23 @@
+<script>
+    var array=[52,273,93,32,57,103,31,2];
+    var max = array[0];
+    var count = array.length;
+    var sort=[];
+    
+    while(1){
+    for(var i = 1; i < array.length; i++){
+        if(max < array[i]){
+            max = array[i];
+        }
+    }
+    for(var j = 0; array[j] == max; j++){}
+    sort.push(max);
+    array.splice(j,1);
+    document.write(array+"<br>");
+    document.write(sort+"<br>");
+    max=0;
+    if(sort.length>count)break;
+    }
+    
+alert(sort);
+</script>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+	function nextRandomInteger(limit) {
+	    return Math.round(Math.random() * limit);
+	}
+
+
+	
+	var randomAlphabet= (function () {
+	    var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    return function () {
+	        return alphabet.charAt(nextRandomInteger(25));
+	    }
+        })();
+
+	var randomHangle= (function () {
+	    var hangle = '가나다라마바사아자차카타파하';
+	    return function () {
+	        return hangle.charAt(nextRandomInteger(25));
+	    }
+        })();
+
+        function randomSpeed(maxSpeed) {
+	    return Math.random()*maxSpeed-Math.random()*maxSpeed;
+	}
+
+	function randomColor(){
+	
+	var r = Math.round(Math.random()*255);
+	var g = Math.round(Math.random()*255);
+	var b = Math.round(Math.random()*255);
+	
+	return 'rgb('+r+','+g+','+b+')';
+	}
+		
+    </script>
+
+    <script>
+	var canvasWidth = 700;
+	var canvasHeight = 400;
+
+	function MovingText1() {
+	    this.x = nextRandomInteger(canvasWidth);
+	    this.y = nextRandomInteger(canvasHeight);
+	    this.vx = randomSpeed(10);
+	    this.vy = randomSpeed(10);
+
+	    this.body = document.createElement('h1');
+	    this.body.innerHTML = randomAlphabet();
+	    this.body.style.position = 'absolute';
+
+	    document.body.appendChild(this.body);
+	}
+
+	function MovingText2() {
+	    this.x = nextRandomInteger(canvasWidth);
+	    this.y = nextRandomInteger(canvasHeight);
+	    this.vx = randomSpeed(10);
+	    this.vy = randomSpeed(10);
+
+	    this.body = document.createElement('h1');
+	    this.body.innerHTML = randomHangle();
+	    this.body.style.position = 'absolute';
+	    this.body.style.color = randomColor();
+
+	    document.body.appendChild(this.body);
+	}
+
+	MovingText1.prototype.move = function() {
+	    if (this.x < 0 || this.x > canvasWidth) { this.vx *= -1; }
+	    if (this.y < 0 || this.y > canvasHeight) { this.vy *= -1; }
+
+	    this.x += this.vx;
+	    this.y += this.vy;
+
+	    this.body.style.left = this.x + 'px';
+	    this.body.style.top = this.y + 'px';
+
+	MovingText2.prototype.move = function() {
+	    if (this.x < 0 || this.x > canvasWidth) { this.vx *= -1; }
+	    if (this.y < 0 || this.y > canvasHeight) { this.vy *= -1; }
+
+	    this.x += this.vx;
+	    this.y += this.vy;
+
+	    this.body.style.left = this.x + 'px';
+	    this.body.style.top = this.y + 'px';
+	};
+	};
+    </script>
+
+    <script>
+	window.onload = function() {
+	    var movingTexts = [];
+
+	    for( var i = 0; i < 100; i++) {
+	    	movingTexts.push(new MovingText1());
+		movingTexts.push(new MovingText2());
+	    }
+
+	    setInterval(function () {
+		for(var i in movingTexts) {
+		    movingTexts[i].move();
+		}
+	    }, 1000 / 30);
+	};
+    </script>
+</head>
+<body>
+</body>
+</html>

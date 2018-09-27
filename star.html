@@ -1,0 +1,25 @@
+<script>
+var space = "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+var spaceTemp =space;
+
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
+var line=0;
+
+while(1){
+    line++;
+    document.write(spaceTemp + alphabet.substring(alphabet.length/2-line,alphabet.length/2 + line)+"<br>");
+    spaceTemp = spaceTemp.substring(0,spaceTemp.length-5);
+    if(line == alphabet.length/2) break;
+}
+
+var spaceCount = 0;
+
+while(1){
+    line--;
+    spaceCount++;
+    spaceTemp = space.substring(0,spaceCount*5);
+    document.write(spaceTemp+alphabet.substring(alphabet.length/2-line,alphabet.length/2+line)+"<br>");
+    if(line == 0) break;
+}
+
+</script>

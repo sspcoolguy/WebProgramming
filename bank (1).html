@@ -1,0 +1,29 @@
+
+
+
+
+<script>
+
+    var blank	= "**********";
+    var money   = "12345";
+    var right	= "";
+    var outStr	= "";
+
+    while(1){
+	right = money.substr(money.length-3);
+	outStr = ',' + right+ outStr;
+	money = money.replace(right,"");
+
+	    if(money.length < 3){
+		break;
+	    }
+    }
+
+
+   document.writeln(money);
+   outStr = blank+money+outStr;
+   outStr = outStr.substr(-10);
+   document.writeln(outStr);
+
+</script>
+	

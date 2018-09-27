@@ -1,0 +1,28 @@
+
+
+
+
+<script>
+
+    var blank	= "**********";
+    var left    = "1234567";
+    var right	= "";
+    var outStr	= "";
+
+	right  = left.substr(left.length-3);
+	outStr = ',' + right+ outStr;
+	left   = left.substr(0,left.length-right.length);
+	document.writeln(left);
+
+	right  = left.substr(left.length-3);
+	outStr = ',' + right+ outStr;
+	left   = left.substr(0,left.length-right.length);
+	document.writeln(left);
+	
+  
+   outStr = blank+left+outStr;
+   outStr = outStr.substr(-10);
+   document.writeln(outStr);
+
+</script>
+	

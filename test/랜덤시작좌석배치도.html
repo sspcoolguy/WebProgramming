@@ -1,0 +1,33 @@
+/*
+랜덤시작좌석배치16이후는1
+소프트웨어 작성 : 2017. 09. 20
+소프트웨어 수정 : 2017. 09. 20
+작성자 : 이효범
+*/
+<script>//해싱공부해볼것
+
+    var number = Math.floor(Math.random()*16)+1;
+
+    document.write("<h1>좌석배치도</h1>");
+    document.write("<table border = 2 width = 50%");
+
+    for(var i = 0; i < 4; i++) {
+	
+    	document.write("<tr>");
+    	document.write("<td>" + number +"</td>");
+	number++;
+	if(number > 16) number = 1;
+
+	for(var j = 0; j < 3; j++) {
+	    document.write("<td>" + number +"</td>");
+	    number++;
+	    if(number > 16) number = 1;
+        }
+
+    	document.write("</tr>");
+    }
+
+    document.write("</table>");
+
+
+</script>

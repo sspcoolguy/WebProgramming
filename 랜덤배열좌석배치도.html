@@ -1,0 +1,46 @@
+/*
+랜덤배열좌석배치(자바스크립트)
+소프트웨어 작성 : 2017. 09. 20
+소프트웨어 수정 : 2017. 09. 20
+작성자 : 이효범
+*/
+
+<script>
+    
+var number = "01020304050607080910111213141516";
+var result = "";
+var l = 0;
+var m = 0;
+
+var k = 0;
+
+for(var u = 0; u < 16; u++){
+    l = Math.floor(Math.random() * number.length/2)*2;
+    result = result.concat(number.substr(l,2));
+    number = number.substr(0,l).concat(number.substr(l+2,number.length)); 
+    document.write(number+"<br>");   
+}
+document.write(result);
+
+
+    document.write("<h1>좌석배치도</h1>");
+    document.write("<table border = 2 width = 50%");
+
+    for(var i = 0; i < 4; i++) {
+    	document.write("<tr>");
+
+    	document.write("<td>"+ result.substr(k,2) +"</td>");
+	k=k+2;
+	
+
+	for(var j = 0; j < 3; j++) {
+	    document.write("<td>"+ result.substr(k,2) +"</td>");
+	    k=k+2;
+	    
+        }
+    	document.write("</tr>");
+    }
+    document.write("</table>");
+
+
+</script>
